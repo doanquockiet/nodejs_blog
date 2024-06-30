@@ -8,7 +8,7 @@ const path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 
 /// HTTP logger
-app.use(morgan('combined'))
+// app.use(morgan('combined'))
 /// template handlerbar
 app.engine('hbs', handlebars.engine({
   extname: '.hbs',
@@ -26,6 +26,10 @@ app.get('/news', (req, res) => {
   res.render('news')
  })
  
+ app.get('/search', (req, res) => {
+  console.log(req.query.q)
+  res.render('search')
+ })
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`)
