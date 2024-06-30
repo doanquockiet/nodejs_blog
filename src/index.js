@@ -4,9 +4,11 @@ const morgan = require('morgan')
 const app = express()
 const port = 3000
 const path = require('path');
+const route = require('./routes')
+
 
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.urlencoded({ extended: true }));
 /// HTTP logger
 // app.use(morgan('combined'))
 /// template handlerbar
@@ -17,19 +19,7 @@ app.set('view engine', 'hbs');
 
 app.set('views',path.join(__dirname, 'resource/views'));
 
-
-app.get('/', (req, res) => {
- res.render('home')
-})
-
-app.get('/news', (req, res) => {
-  res.render('news')
- })
- 
- app.get('/search', (req, res) => {
-  console.log(req.query.q)
-  res.render('search')
- })
+route(app);
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`)
