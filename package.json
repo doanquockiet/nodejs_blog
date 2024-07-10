@@ -25,7 +25,8 @@
   "homepage": "https://github.com/doanquockiet/nodejs_blog#readme",
   "dependencies": {
     "express": "^4.19.2",
-    "mongoose": "^8.4.4"
+    "mongoose": "^8.4.4",
+    "mongoose-slug-generator": "^1.0.4"
   },
   "devDependencies": {
     "express-handlebars": "^7.1.3",
